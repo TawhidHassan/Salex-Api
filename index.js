@@ -3,7 +3,7 @@ const cors = require("cors");
 const express = require("express");
 const bp = require("body-parser");
 const passport = require("passport");
-const { mongoose } = require("mongoose");
+const { connect } = require("mongoose");
 const { success, error } = require("consola");
 
 // Bring in the app constants
@@ -27,8 +27,11 @@ app.use("/", require("./routes/index"));
 const startApp = async () => {
     try {
       // Connection With DB
-     await mongoose.connect('mongodb+srv://BlogUser:Sifat15963740@cluster0.0igq6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true });
-
+      await connect('mongodb+srv://BlogUser:Sifat15963740@cluster0.0igq6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+        useFindAndModify: true,
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+      });
   
       success({
         message: `Successfully connected with the Database \n${DB}`,
