@@ -3,7 +3,7 @@ const cors = require("cors");
 const express = require("express");
 const bp = require("body-parser");
 const passport = require("passport");
-const { connect } = require("mongoose");
+const { mongoose } = require("mongoose");
 const { success, error } = require("consola");
 
 // Bring in the app constants
