@@ -27,11 +27,8 @@ app.use("/", require("./routes/index"));
 const startApp = async () => {
     try {
       // Connection With DB
-      await connect(DB, {
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-        useNewUrlParser: true
-      });
+     await mongoose.connect('mongodb+srv://BlogUser:Sifat15963740@cluster0.0igq6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true });
+
   
       success({
         message: `Successfully connected with the Database \n${DB}`,
